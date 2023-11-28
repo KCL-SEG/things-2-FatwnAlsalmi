@@ -8,3 +8,10 @@ class Thing(models.Model):
         validators=[MinValueValidator(0),MaxValueValidator(50)]
     )
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+def validate_quantity(value):
+    if value < 0 or value > 100:
+        raise models.ValidationError('Quantity must be between 0 and 100 (inclusive).')
