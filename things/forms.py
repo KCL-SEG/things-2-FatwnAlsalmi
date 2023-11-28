@@ -7,7 +7,7 @@ class ThingForm(forms.ModelForm):
         exclude = ['created_at']
 
     widgets = {
-        'description': forms.Textarea(attrs={'rows': 4, 'cols': 15}),
+        'description': forms.Textarea(attrs={'rows': 4, 'cols': 15, 'maxlength': 120}),
         'quantity': forms.NumberInput(attrs={'min': 0, 'max': 100}),
     }
 
